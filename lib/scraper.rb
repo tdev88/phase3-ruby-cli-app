@@ -3,7 +3,7 @@ require_relative '../config/environment.rb'
 class Scraper 
   #get html content from url 
   def get_page 
-    doc = Nokogiri::HTML(open("https://www.absolutesoulsecrets.com/horoscopes/free-horoscopes/")) 
+    Nokogiri::HTML(open("https://www.absolutesoulsecrets.com/horoscopes/free-horoscopes/")) 
   end 
 
   #use css selector to narrow down HTML content to be used for the sign and forecast variables 
@@ -23,12 +23,6 @@ class Scraper
     end   
   end 
 
-  #print list of signs 
-  def print_signs 
-    Scraper.new.make_horoscopes 
-    Horoscope.all.each do |horoscope| 
-    puts "#{horoscope.index}. #{horoscope.sign}" 
-    end   
-  end   
+  
 
 end 
